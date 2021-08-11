@@ -30,5 +30,18 @@
                         content-type="application/json"
                         timeout="60000"/>
 
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
+        <property name="serializationInclusion" value="NON_NULL"/>
+    </bean>
 
+    <citrus-http:client id="restClientLocal"
+                        request-url="http://localhost:5555/"
+                        request-method="GET"
+                        content-type="application/json"
+                        timeout="60000"/>
+
+    <citrus-http:server id="restServerLocal"
+                        port="5555"
+                        auto-start="true"
+                        timeout="60000"/>
 </beans>
